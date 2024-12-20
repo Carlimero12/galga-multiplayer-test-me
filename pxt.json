@@ -3,7 +3,8 @@
     "description": "",
     "dependencies": {
         "device": "*",
-        "multiplayer": "*"
+        "multiplayer": "*",
+        "sprite-scaling": "*"
     },
     "files": [
         "main.blocks",

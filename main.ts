@@ -190,13 +190,13 @@ controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Press
 })
 controller.player1.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
     if (info.player1.hasLife()) {
-        dart1 = sprites.createProjectileFromSprite(assets.image`meinBild`, player1, 200, 0)
+        dart1 = sprites.createProjectileFromSprite(assets.image`test`, player1, 200, 0)
     }
 })
 controller.player1.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Pressed, function () {
     // No need for '== True'
     if (info.player1.hasLife()) {
-        dart1 = sprites.createProjectileFromSprite(assets.image`meinBild`, player1, 200, 0)
+        dart1 = sprites.createProjectileFromSprite(background, player1, 200, 0)
     }
     if (info.player2.hasLife()) {
         dart2 = sprites.createProjectileFromSprite(img`
@@ -280,6 +280,94 @@ let player4: Sprite = null
 let player3: Sprite = null
 let player2: Sprite = null
 let player1: Sprite = null
+let background = 0
+let test = [img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . 2 2 3 3 3 3 2 . . . . 
+    . 2 2 2 3 3 1 1 1 1 1 3 2 . . . 
+    . 1 1 1 1 1 1 1 1 1 1 1 2 . . . 
+    . 2 2 2 3 3 1 1 1 1 1 3 2 . . . 
+    . . . . . 2 2 2 3 3 3 2 . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `,img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . 2 2 . . . . . . . . . . . . . 
+    . 3 1 1 3 . . . . . . . . . . . 
+    . 1 1 1 1 2 . . . . . . . . . . 
+    2 1 1 1 1 3 . . . . . . . . . . 
+    2 1 1 1 1 3 . . . . . . . . . . 
+    2 1 1 1 1 3 . . . . . . . . . . 
+    2 1 1 1 1 3 . . . . . . . . . . 
+    2 1 1 1 1 3 . . . . . . . . . . 
+    . 3 1 1 1 2 . . . . . . . . . . 
+    . 3 1 1 3 . . . . . . . . . . . 
+    . 2 2 . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `,img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . 2 2 4 4 4 . . . . . . 
+    . . 2 . 2 d 5 5 d 5 4 4 . . . . 
+    . 2 2 2 4 5 5 5 d 5 5 d 4 . . . 
+    . 2 2 2 d 5 5 1 1 5 5 5 4 . . . 
+    2 4 2 4 d d d 1 1 1 1 d 4 4 . . 
+    2 4 2 d 5 1 1 5 5 1 1 5 5 4 . . 
+    2 4 4 5 5 1 1 1 5 1 1 5 5 4 . . 
+    2 4 4 5 5 1 1 1 5 5 d 5 5 4 . . 
+    2 4 4 d 5 5 5 5 1 1 d d d 4 . . 
+    2 4 2 d d 1 1 5 1 1 5 d 4 . . . 
+    . 2 2 4 d 1 1 d 5 5 5 d 4 . . . 
+    . 2 2 4 5 5 5 d 5 5 5 4 4 . . . 
+    . . . . 4 5 5 d d 4 4 4 4 . . . 
+    . . . . . 2 2 4 4 4 . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `,img`
+    . . . 2 2 4 4 4 . . b b b . . . 
+    . 2 2 2 4 4 4 4 . b d d b . . . 
+    . 2 4 4 4 5 5 4 b d d d d b 2 . 
+    . 2 4 5 4 5 5 4 b d b b 1 b 2 2 
+    2 4 4 4 d 5 5 . b d b b 1 1 4 2 
+    2 4 4 5 5 d d . b d b b d d 4 2 
+    2 4 5 5 5 d 5 5 2 2 2 b 1 d 4 4 
+    2 5 5 5 5 d 5 5 4 4 4 b d 3 4 4 
+    2 5 5 d 5 5 d 4 4 4 4 b 1 1 4 4 
+    2 4 4 5 5 5 4 2 2 2 2 b 1 1 4 4 
+    2 4 d 5 5 5 4 . b d b b 3 d 4 4 
+    2 4 5 5 d d 4 . b d b b 1 d 4 2 
+    . 2 5 5 d 5 5 4 b d b b 1 b 2 2 
+    . . 2 4 4 5 5 4 b d d d d b 2 . 
+    . . 2 2 2 4 4 4 . b d d b . . . 
+    . . . . . 2 2 4 . . b b b . . . 
+    `,img`
+    . . . . b b . . . . . b c c c . 
+    . . . b d d b . . . b d d c c . 
+    . . . b d d b . . b d d d d c . 
+    . . . . b b . . . b d c c d c . 
+    . . . . . . . . . b c c b b c . 
+    . . . . . b b . . d c b . . c . 
+    b b . . . b b . . d b . . . . . 
+    b b . . . . . . . d b . . . b c 
+    . . . . . . . . . d b . . . d c 
+    . . . . . . . . . d b . . b d c 
+    . . b b b . . . . d c . . b d c 
+    . . b d d b . . . b c b b d d c 
+    . . b d d d b . . b c c b d b c 
+    . . . b d d b . . b d d d d c . 
+    . . . . b b b . . . b d d b c . 
+    . . . . . . . . . . . b c c . . 
+    `]
+background = 0
 game.splash("Ask your friends to join", "Then press A")
 effects.starField.startScreenEffect()
 player1 = sprites.create(img`
@@ -444,16 +532,16 @@ game.onUpdateInterval(500, function () {
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . 9 9 . . . . . 5 . . . . 
-            . . . 9 9 9 9 . . . 5 5 . . . . 
-            2 2 2 2 9 9 2 2 2 2 2 . 4 4 . . 
-            . . 2 2 2 2 5 5 5 2 2 . 4 4 4 . 
-            . . . . . . 5 5 5 . . . . . . . 
-            . . . . . . . 5 5 . . . . . . . 
-            . . . . . . . . 5 . . . . . . . 
-            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . f . . . . . . 
+            . . . . 2 2 . . f f . . . . . . 
+            . . . 2 6 2 . f f f . . . . . . 
+            . . 2 6 6 2 f f f f 2 5 4 4 5 . 
+            2 2 2 6 6 2 f f f f 2 4 . 5 . . 
+            . . 2 6 6 2 f f f f 2 5 . 4 4 5 
+            . . . 2 6 2 f f f f 2 4 4 . 5 . 
+            . . . . 2 2 . f f f . . . . . . 
+            . . . . . . . . f f . . . . . . 
+            . . . . . . . . . f . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 

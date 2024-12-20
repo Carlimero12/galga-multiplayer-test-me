@@ -1,8 +1,13 @@
 {
     "image1": {
-        "data": "hwQQABAAAAD//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////w==",
+        "data": "hwQQABAAAAAAAAAAAAAAAABAREREBAAAAEAiIiIEAAAAQCIiIgQAAABAIiIiBAAAAEAiIiIEAAAAQCIiIgQAAABAIiIiBAAAAEAiIiIEAAAAQCIiIgQAAABAIiIiBAAAAEAiIiIEAAAAACQiQgAAAAAAQCIEAAAAAAAARAAAAAAAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
-        "displayName": "meinBild"
+        "displayName": "test"
+    },
+    "image2": {
+        "data": "hwQQABAAAAAAALC7uwsAAACwm5lVtQsAALvZPTNdvQCwm92ZPTPVC7DZmZmZM1MLm5mZmZk507WbmZmZmdkztZuZmZmZmTO1m5mZmZmZM7WbmRGRmZkztZuZEZGZmVO1sJkRkZnZXQuwm5kZmd21CwC7mZnZXbsAALCbmZm5CwAAALC7uwsAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "meinBild11"
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",
