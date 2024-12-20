@@ -25,6 +25,22 @@ def on_player4_life_zero():
         player4.destroy()
 info.player4.on_life_zero(on_player4_life_zero)
 
+def on_on_overlap(sprite2, otherSprite2):
+    if sprite2 == player1:
+        info.player1.change_life_by(-1)
+        scene.camera_shake(4, 200)
+    elif sprite2 == player2:
+        info.player2.change_life_by(-1)
+        scene.camera_shake(4, 200)
+    elif sprite2 == player3:
+        info.player3.change_life_by(-1)
+        scene.camera_shake(4, 200)
+    else:
+        info.player4.change_life_by(-1)
+        scene.camera_shake(4, 200)
+    otherSprite2.destroy(effects.fire, 200)
+sprites.on_overlap(SpriteKind.player, SpriteKind.enemy, on_on_overlap)
+
 def on_player3_life_zero():
     game.set_dialog_text_color(1)
     game.set_dialog_frame(img("""
@@ -218,7 +234,7 @@ controller.player1.on_button_event(ControllerButton.A,
     ControllerButtonEvent.PRESSED,
     on_player1_button_a_pressed)
 
-def on_on_overlap(sprite, otherSprite):
+def on_on_overlap2(sprite, otherSprite):
     if sprite == dart1:
         info.player1.change_score_by(1)
     elif sprite == dart2:
@@ -229,23 +245,7 @@ def on_on_overlap(sprite, otherSprite):
         info.player4.change_score_by(1)
     sprite.destroy()
     otherSprite.destroy(effects.fire, 500)
-sprites.on_overlap(SpriteKind.projectile, SpriteKind.enemy, on_on_overlap)
-
-def on_on_overlap2(sprite2, otherSprite2):
-    if sprite2 == player1:
-        info.player1.change_life_by(-1)
-        scene.camera_shake(4, 200)
-    elif sprite2 == player2:
-        info.player2.change_life_by(-1)
-        scene.camera_shake(4, 200)
-    elif sprite2 == player3:
-        info.player3.change_life_by(-1)
-        scene.camera_shake(4, 200)
-    else:
-        info.player4.change_life_by(-1)
-        scene.camera_shake(4, 200)
-    otherSprite2.destroy(effects.fire, 200)
-sprites.on_overlap(SpriteKind.player, SpriteKind.enemy, on_on_overlap2)
+sprites.on_overlap(SpriteKind.projectile, SpriteKind.enemy, on_on_overlap2)
 
 bogey: Sprite = None
 dart1: Sprite = None
