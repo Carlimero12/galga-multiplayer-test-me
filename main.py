@@ -211,14 +211,86 @@ def on_player1_button_a_pressed():
     if info.player1.has_life():
         dart1 = sprites.create_projectile_from_sprite(img("""
                 . . . . . . . . . . . . . . . . 
+                            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 a a 6 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 a 6 6 6 6 4 4 4 4 5 5 5 5 5 
+                            5 5 a a 6 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+            """),
+            player1,
+            200,
+            0)
+controller.player1.on_button_event(ControllerButton.A,
+    ControllerButtonEvent.PRESSED,
+    on_player1_button_a_pressed)
+
+def on_player1_button_b_pressed():
+    global dart1, dart2, dart3, dart4
+    # No need for '== True'
+    if info.player1.has_life():
+        dart1 = sprites.create_projectile_from_sprite(img("""
+                . . . . . . . . . . . . . . . . 
+                            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 a a 6 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 a 6 6 6 6 4 4 4 4 5 5 5 5 5 
+                            5 5 a a 6 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 
+                            5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+            """),
+            player1,
+            200,
+            0)
+    if info.player2.has_life():
+        dart2 = sprites.create_projectile_from_sprite(img("""
+                . . . . . . . . . . . . . . . . 
                             . . . . . . . . . . . . . . . . 
                             . . . . . . . . . . . . . . . . 
                             . . . . . . . . . . . . . . . . 
                             . . . . . . . . . . . . . . . . 
                             . . . . . . . . . . . . . . . . 
-                            . 5 a a 6 . . . . . . . . . . . 
-                            5 5 a 6 6 6 6 4 4 4 4 . . . . . 
-                            . 5 a a 6 . . . . . . . . . . . 
+                            . 5 a a 7 . . . . . . . . . . . 
+                            5 5 a 7 7 7 7 4 4 4 4 . . . . . 
+                            . 5 a a 7 . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . .
+            """),
+            player2,
+            200,
+            0)
+    if info.player3.has_life():
+        dart3 = sprites.create_projectile_from_sprite(img("""
+                . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . 5 a a 8 . . . . . . . . . . . 
+                            5 5 a 8 8 8 8 4 4 4 4 . . . . . 
+                            . 5 a a 8 . . . . . . . . . . . 
                             . . . . . . . . . . . . . . . . 
                             . . . . . . . . . . . . . . . . 
                             . . . . . . . . . . . . . . . . 
@@ -227,12 +299,34 @@ def on_player1_button_a_pressed():
                             . . . . . . . . . . . . . . . . 
                             . . . . . . . . . . . . . . . .
             """),
-            player1,
+            player3,
             200,
             0)
-controller.player1.on_button_event(ControllerButton.A,
+    if info.player4.has_life():
+        dart4 = sprites.create_projectile_from_sprite(img("""
+                . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . 5 a a 5 . . . . . . . . . . . 
+                            5 5 a 5 5 5 5 4 4 4 4 . . . . . 
+                            . 5 a a 5 . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . .
+            """),
+            player4,
+            200,
+            0)
+controller.player1.on_button_event(ControllerButton.B,
     ControllerButtonEvent.PRESSED,
-    on_player1_button_a_pressed)
+    on_player1_button_b_pressed)
 
 def on_on_overlap2(sprite, otherSprite):
     if sprite == dart1:

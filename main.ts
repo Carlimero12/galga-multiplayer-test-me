@@ -190,16 +190,44 @@ controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Press
 })
 controller.player1.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
     if (info.player1.hasLife()) {
-        dart1 = sprites.createProjectileFromSprite(img`
+        dart1 = sprites.createProjectileFromSprite(assets.image`meinBild`, player1, 200, 0)
+    }
+})
+controller.player1.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Pressed, function () {
+    // No need for '== True'
+    if (info.player1.hasLife()) {
+        dart1 = sprites.createProjectileFromSprite(assets.image`meinBild`, player1, 200, 0)
+    }
+    if (info.player2.hasLife()) {
+        dart2 = sprites.createProjectileFromSprite(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
-            . 5 a a 6 . . . . . . . . . . . 
-            5 5 a 6 6 6 6 4 4 4 4 . . . . . 
-            . 5 a a 6 . . . . . . . . . . . 
+            . 5 a a 7 . . . . . . . . . . . 
+            5 5 a 7 7 7 7 4 4 4 4 . . . . . 
+            . 5 a a 7 . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, player2, 200, 0)
+    }
+    if (info.player3.hasLife()) {
+        dart3 = sprites.createProjectileFromSprite(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . 5 a a 8 . . . . . . . . . . . 
+            5 5 a 8 8 8 8 4 4 4 4 . . . . . 
+            . 5 a a 8 . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -207,7 +235,27 @@ controller.player1.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Press
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
-            `, player1, 200, 0)
+            `, player3, 200, 0)
+    }
+    if (info.player4.hasLife()) {
+        dart4 = sprites.createProjectileFromSprite(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . 5 a a 5 . . . . . . . . . . . 
+            5 5 a 5 5 5 5 4 4 4 4 . . . . . 
+            . 5 a a 5 . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, player4, 200, 0)
     }
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
