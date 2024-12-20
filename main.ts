@@ -280,7 +280,7 @@ let player4: Sprite = null
 let player3: Sprite = null
 let player2: Sprite = null
 let player1: Sprite = null
-let background = 0
+let background: Image = null
 let test = [img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
@@ -367,7 +367,7 @@ let test = [img`
     . . . . b b b . . . b d d b c . 
     . . . . . . . . . . . b c c . . 
     `]
-background = 0
+background = assets.image`meinBild11`
 game.splash("Ask your friends to join", "Then press A")
 effects.starField.startScreenEffect()
 player1 = sprites.create(img`

@@ -54,7 +54,8 @@ b 5 d 3 3 9 9 9 9 9 9 9 d d 9 b
 
     helpers._registerFactory("song", function(name: string) {
         switch(helpers.stringTrim(name)) {
-
+            case "song1":
+            case "meinLied":return hex`0078000408020100001c00010a006400f401640000040000000000000000000000000005000004360000000400012408000c00041e2224290c001000012c1000140002242914001800031e252a18001c0001251c0020000129200024000122`;
         }
         return null;
     })
